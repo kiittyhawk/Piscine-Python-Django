@@ -1,0 +1,63 @@
+{% extends 'ex01/base.html' %}
+{% block title %}Ex01: Display process of a static page.{% endblock %}
+{% block content %}
+<div class="content" role="main">
+    <div class="row-fluid sidebar-right">
+        <div class="span9 primary-column blog-summary">
+            <div class="navheader">
+                <table summary="Navigation header" width="100%">
+                    <tr>
+                        <th align="center" colspan="3">Display process of a static page</th>
+                    </tr>
+                </table>
+                <hr />
+            </div>
+            <div class="section" title="Display process of a static page">
+                <div class="titlepage">
+                    <div>
+                        <div>
+                            <h2 class="title">Display process of a static page</h2>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    A static website contains a set of relevant HTML pages and files hosted on the computer on which the
+                    web server is installed.
+
+                </p>
+                <p>
+
+                    All HTML code is created by the developer until the moment when the page is placed on the server.
+                    Since the HTML code does not change after the page is placed on the server, this page is called
+                    static.
+                </p>
+                <p>
+                    A web server is software that provides web pages in response to requests from web browsers. Usually,
+                    a page request is created when clicking a link on a web page, selecting a bookmark in
+                    the browser, or entering a URL in the browser's address bar.
+                    The final content of a static web page is determined by the developer and remains unchanged during
+                    the page request process.
+                </p>
+                <div class="orderedlist">
+                    <ol class="orderedlist" type="1">
+                        <li class="listitem">
+                            <p>The web browser requests a static page.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>The web server finds the page.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>The web server sends the page to the browser that requested it.</p>
+                        </li>
+                    </ol>
+                </div>
+                <p>
+                    Note. If you approach strictly, a "static" page may not actually be one. For example, a replacement
+                    image or Flash content (in the form of a SWF file) allows you to "revive" a static page. However, in
+                    this context, the page is static, since it is sent to the browser without changes.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

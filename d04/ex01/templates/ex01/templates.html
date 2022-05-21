@@ -1,0 +1,124 @@
+{% extends 'ex01/base.html' %}
+{% load static %}
+{% block title %}Ex01: Template engine.{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'style2.css' %}">
+{% endblock style %}
+{% block content %}
+<div class="content" role="main">
+    <div class="row-fluid sidebar-right">
+        <div class="span9 primary-column blog-summary">
+            <div class="navheader">
+                <table summary="Navigation header" width="100%">
+                    <tr>
+                        <th align="center" colspan="3">Template engine</th>
+                    </tr>
+                </table>
+                <hr />
+            </div>
+            <div class="section" title="Template engine">
+                <div class="titlepage">
+                    <div>
+                        <div>
+                            <h2 class="title">Template engine</h2>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    Being a web framework, Django needs a convenient way to generate HTML dynamically. The most common
+                    approach relies on templates. A template contains the static parts of the desired HTML output as
+                    well as some special syntax describing how dynamic content will be inserted. For a hands-on example
+                    of creating HTML pages with templates.
+                </p>
+                <p>
+                    A Django project can be configured with one or several template engines (or even zero if you don’t
+                    use templates). Django ships built-in backends for its own template system, creatively called the
+                    Django template language (DTL), and for the popular alternative Jinja2. Backends for other template
+                    languages may be available from third-parties. You can also write your own custom backend, see
+                    Custom template backend
+                </p>
+                <p>
+                    Django defines a standard API for loading and rendering templates regardless of the backend. Loading
+                    consists of finding the template for a given identifier and preprocessing it, usually compiling it
+                    to an in-memory representation. Rendering means interpolating the template with context data and
+                    returning the resulting string.
+                </p>
+                <p>
+                    The Django template language is Django’s own template system. Until Django 1.8 it was the only
+                    built-in option available. It’s a good template library even though it’s fairly opinionated and
+                    sports a few idiosyncrasies. If you don’t have a pressing reason to choose another backend, you
+                    should use the DTL, especially if you’re writing a pluggable application and you intend to
+                    distribute templates. Django’s contrib apps that include templates, like django.contrib.admin, use
+                    the DTL.
+                </p>
+                <table summary="Navigation header" width="100%">
+                    <tr>
+                        <th align="center" colspan="3">Block</th>
+                    </tr>
+                </table>
+                <hr />
+                <p>The most powerful – and thus the most complex – part of Django’s template engine is template
+                    inheritance. Template inheritance allows you to build a base “skeleton” template that contains all
+                    the common elements of your site and defines blocks that child templates can override.</p>
+                <table summary="Navigation header" width="100%">
+                    <tr>
+                        <th align="center" colspan="3">Loopsfor..in</th>
+                    </tr>
+                </table>
+                <hr />
+                <p>A for loop is used for iterating over a sequence (that is either a list, a tuple, a dictionary, a
+                    set, or a string).
+
+                    This is less like the for keyword in other programming languages, and works more like an iterator
+                    method as found in other object-orientated programming languages.
+
+                    With the for loop we can execute a set of statements, once for each item in a list, tuple, set etc.
+
+                </p>
+                <table summary="Navigation header" width="100%">
+                    <tr>
+                        <th align="center" colspan="3">Variables</th>
+                    </tr>
+                </table>
+                <hr />
+                <p>
+                    A variable outputs a value from the context, which is a dict-like object mapping keys to values.
+                    Variables are surrounded by {{ and }}. With a context of {'first_name': 'John', 'last_name': 'Doe'},
+                    this template renders to:
+                    <span class="emphasis"><em>My first name is John. My last name is Doe.</em></span>
+                    If a variable resolves to a callable, the template system will call it with no arguments and use its
+                    result instead of the callable.
+                </p>
+
+                <table summary="Navigation header" width="100%">
+                    <tr>
+                        <th align="center" colspan="3">Tags</th>
+                    </tr>
+                </table>
+                <hr />
+                <p>
+                    Tags provide arbitrary logic in the rendering process.
+
+                    This definition is deliberately vague. For example, a tag can output content, serve as a control
+                    structure e.g. an “if” statement or a “for” loop, grab content from a database, or even enable
+                    access to other template tags.
+
+                    Tags are surrounded by {\% and \%}, without '\'.
+                </p>
+                <table summary="Navigation header" width="100%">
+                    <tr>
+                        <th align="center" colspan="3">If</th>
+                    </tr>
+                </table>
+                <hr />
+                <p>
+                    The {\% if \%} tag evaluates a variable, and if that variable is “true” (i.e. exists, is not empty,
+                    and is not a false boolean value) the contents of the block are output.
+                    As you can see, the if tag may take one or several {\% elif \%} clauses, as well as an {\% else %}
+                    clause that will be displayed if all previous conditions fail. These clauses are optional, without '\'.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

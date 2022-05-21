@@ -1,0 +1,126 @@
+{% extends 'ex01/base.html' %}
+{% block title %}Ex01: Django, framework web.{% endblock %}
+{% block content %}
+<div class="content" role="main">
+    <div class="row-fluid sidebar-right">
+        <div class="span9 primary-column blog-summary">
+            <div class="navheader">
+                <table summary="Navigation header" width="100%">
+                    <tr>
+                        <th align="center" colspan="3">Django History</th>
+                    </tr>
+                </table>
+                <hr />
+            </div>
+            <div class="section" title="Django History">
+                <div class="titlepage">
+                    <div>
+                        <div>
+                            <h2 class="title">Django History</h2>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    Before we dive into the study of the code, we should pay attention to
+                    a little time of Django development history. We noted that we
+                    we will tell you how everything works <span class="emphasis"><em>without</em></span>
+                    auxiliary tools to help you deal with
+                    internal kitchen processes. Similarly, it will be useful for
+                    understanding <span class="emphasis"><em>why</em></span> the environment was created
+                    Django, why Django works this way and not otherwise.
+                </p>
+                <p>
+                    If you have sufficient application development experience, maybe
+                    have you encountered the problems shown in the CGI example,
+                    which we demonstrated earlier. The classic process
+                    application development looks like this:
+                </p>
+                <div class="orderedlist">
+                    <ol class="orderedlist" type="1">
+                        <li class="listitem">
+                            <p>Create an application from scratch.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>Create another application from scratch.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>Implement the work of the first application with the second.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>Rework the code so that both applications use common functions.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>Repeat steps 2-4 several times.</p>
+                        </li>
+                        <li class="listitem">
+                            <p>You invented the development environment.</p>
+                        </li>
+                    </ol>
+                </div>
+                <p>
+                </p>
+                <p>That's exactly how Django was created!</p>
+                <p>
+                    Django grew organically during the development of real applications,
+                    created by a development team in Lawrence, Kansas, USA. She
+                    was born at the end of 2003 when the programmers of the newspaper <span class="quote">"<span
+                            class="quote">Lawrence
+                            Journal-World</span>"</span>, Adrian Holovati (Adrian
+                    Holovaty) and Simon Willison (Simon Willison), started using the Python language for development
+                    their applications. The World Online team responsible for the development and support of several
+                    local news sites flourished in the developer environment dictated by the urgency of work
+                    a journalist. For sites including LJWorld.com , Lawrence.com and KUsports.com journalists and
+                    managers demanded that new features and entire applications be developed as much as possible
+                    quickly, often the bill went for days or hours. Thus, Simon and Adrian created an environment
+                    time-saving development based on their needs — this was the only way
+                    they could create managed applications in
+                    strict deadlines.
+                </p>
+                <p>
+                </p>
+                <p>
+                </p>
+                <p>In the summer of 2005, having developed this environment to such a state that it supported most sites
+                    World Online, a team of developers, including Jacob Kaplan-Moss, decided
+                    release the environment as open source software. They let him out
+                    In July 2005, under the name Django in honor of jazz guitarist Django Reinhardt (Django
+                    Reinhardt).</p>
+                <p>
+                    Now, after several years, Django is literate
+                    an open source project with tens of thousands
+                    users that developers are working on all over the
+                    the planet. Two authors from the World Online team (<span class="quote">"<span
+                            class="quote">Generous
+                            lifelong dictators</span>"</span>, Adrian and Jacob) all
+                    still carry out
+                    general guidance on the development of the development environment, but now it
+                    to a greater extent, it depends on the joint efforts of the development team.
+                    World Online provides other important aspects such as time
+                    developers, marketing materials and hosting/channel for the environment website.
+                </p>
+                <p> This story is relevant because it helps explain two key aspects. The first aspect —
+                    the main purpose of Django. So
+                    as Django was born in a news environment, it provides some
+                    tools (such as the administrative interface described in
+                    chapter <span class="quote">"<span class="quote"> Admin Interface
+                            Django</span>"</span>), which are good
+                    suitable for content-oriented sites such as
+                    Amazon.com , craigslist.org and washingtonpost.com , which
+                    provide dynamic information from the database. Exists
+                    the difference between being <span class="emphasis"><em>particularly effective</em></span> in
+                    one way and being <span class="emphasis"><em>ineffective</em></span> in another.
+                </p>
+                <p>The second aspect is how Django's origins shaped the culture of its community
+                    open source code. Since Django was derived from real code, and was not
+                    academic development or commercial product, it is fully focused on the solution
+                    development problems that its authors have faced and continue to face. As a
+                    result, Django is constantly being improved. The founders of the environment have their own interest
+                    in
+                    Django saving their time, creating easy-to-maintain applications and working well
+                    under load. In the absence of other reasons, developers are motivated by their own
+                    selfish desires to save your time and enjoy your work.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
