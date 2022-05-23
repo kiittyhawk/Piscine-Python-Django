@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'main',
     'ex00',
     'ex02',
+    'ex03',
+    'ex04',
+    'ex05',
+    'ex06',
 ]
 
 MIDDLEWARE = [
@@ -79,9 +83,9 @@ WSGI_APPLICATION = 'day05.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'day05',
-        'USER': 'postgres',
-        'PASSWORD': '12345',
+        'NAME': 'djangotraining',
+        'USER': 'djangouser',
+        'PASSWORD': 'secret',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
