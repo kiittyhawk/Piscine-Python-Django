@@ -1,0 +1,46 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Display</title>
+</head>
+
+<body>
+    {% for el in movies %}
+        <div class="container mt-5">
+            <div class="alert alert-info">
+                <table>
+                    <tr>
+                        <th>title: </th>
+                        <td>{{el.title}}</td>
+                    </tr>
+                    <tr>
+                        <th>episode_nb: </th>
+                        <td>{{el.episode_nb}}</td>
+                    </tr>
+                    <tr>
+                        <th>opening_crawl: </th>
+                        <td>{{el.opening_crawl}}</td>
+                    </tr>
+                    <tr>
+                        <th>director:</th>
+                        <td>{{el.director}}</td>
+                    </tr>
+                    <tr>
+                        <th>producer:</th>
+                        <td>{{el.producer}}</td>
+                    </tr>
+                    <tr>
+                        <th>release_date:</th>
+                        <td>{{el.release_date}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    {% endfor %}
+</body>
+
+</html>

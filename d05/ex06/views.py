@@ -174,7 +174,7 @@ def update(request):
                     conn.commit()
             except Exception as e:
                 return HttpResponse(e)
-        return redirect('update')
+        return redirect(request.path)
     else:
         RESPONSE = "SELECT * FROM ex06_movies ORDER BY episode_nb;"
         try:

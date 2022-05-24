@@ -1,4 +1,3 @@
-from tokenize import PseudoExtras
 from .forms import RemoveForm
 from django.conf import settings
 from django.http import HttpRequest, HttpResponse
@@ -124,7 +123,7 @@ def display(request):
                                 host=settings.DATABASES['default']['HOST'],
                                 port=settings.DATABASES['default']['PORT'])
 
-        REQUEST = "SELECT * FROM ex04_movies;"
+        REQUEST = "SELECT * FROM ex04_movies ORDER BY episode_nb;"
         with conn:
             with conn.cursor() as cur:
                 cur.execute(REQUEST)
@@ -162,9 +161,9 @@ def remove(request):
                             cur.execute(DELETE_SQL, [data.cleaned_data['title']])
                 except Exception as e:
                     print(e)
-            return redirect('remove')
+            return redirect(request.path)
         else:
-            REQUEST = "SELECT * FROM ex04_movies;"
+            REQUEST = "SELECT * FROM ex04_movies ORDER BY episode_nb;"
             with conn:
                 with conn.cursor() as cur:
                     cur.execute(REQUEST)

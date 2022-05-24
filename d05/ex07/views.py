@@ -1,6 +1,7 @@
+from django.conf import settings
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-from .forms import RemoveForm
+from .forms import UpdateForm
 from .models import Movies
 
 
@@ -79,34 +80,37 @@ def display(request):
         movies = Movies.objects.order_by('episode_nb')
         if not movies:
             return HttpResponse("No data available")
-        return render(request, 'ex05/display.html', {'movies':movies})
+        return render(request, 'ex07/display.html', {'movies':movies})
     except Exception as e:
         return HttpResponse("No data available")
 
 
-def remove(request):
+def update(request):
     if request.method == 'POST':
         try:
-            movies = Movies.objects.all()
+            movies = Movies.objects.order_by('episode_nb')
             if not movies:
-                return HttpResponse("No data available")
-        except Exception as e:
+                raise Movies.DoesNotExist
+        except Movies.DoesNotExist as e:
             return HttpResponse(e)
         choices = ((movie.title, movie.title) for movie in movies)
-        data = RemoveForm(choices, request.POST)
+        data = UpdateForm(choices, request.POST)
         if data.is_valid():
             try:
-                Movies.objects.get(title=data.cleaned_data['title']).delete()
+                movie = Movies.objects.get(title=data.cleaned_data['title'])
+                movie.opening_crawl = data.cleaned_data['opening_crawl']
+                movie.save()
             except Exception as e:
-                return HttpResponse(e)
+                print(e)
         return redirect(request.path)
     else:
         try:
             movies = Movies.objects.order_by('episode_nb')
             if not movies:
                 return HttpResponse("No data available")
-        except Exception as e:
-            return HttpResponse(e)
+        except Movies.DoesNotExist as e:
+            return HttpResponse("No data available")
         choices = ((movie.title, movie.title) for movie in movies)
-        context = {"form": RemoveForm(choices)}
-        return render(request, 'ex05/remove.html', context)
+        context = {'form': UpdateForm(choices)}
+        return render(request, 'ex07/update.html', context)
+        
