@@ -1,0 +1,54 @@
+{% load static %}
+{% load bootstrap3 %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="{% static 'ex/styles.css' %}" , rel="stylesheet">
+    <title>{% block title %}{% endblock %}</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    {% bootstrap_css %} {% bootstrap_javascript %}
+    <style>
+        #login_form label {
+            display: none;
+        }
+
+        th {
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="table-page" border=0 cellpadding="0" cellspacing="0">
+        <tr>
+            <td valign=top>
+                {% block mainmenu %}
+                <div class="header">
+                    <ul id="mainmenu" class="mainmenu">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'articles' %}">Last articles</a></li>
+                        {% if request.user.is_authenticated %}
+                        <li><a href="{% url 'favourites' %}">Favourites</a></li>
+                        <li><a href="{% url 'publish' %}">Сreating an article</a></li>
+                        <li class="last">Logged as {{ user.username }}! | <a href="{% url 'logout' %}">Logout</a></li>
+                        {% else %}
+                        <li class="last"><a href="{% url 'register' %}">Register | </a><a
+                                href="{% url 'login' %}">Login</a></li>
+                        {% endif %}
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                {% endblock mainmenu %}
+                <div class="content-text"></div>
+                {% block content %}
+                {% endblock %}
+</body>
+
+</html>

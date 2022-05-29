@@ -1,0 +1,16 @@
+{% extends 'ex/base.html' %}
+{% block content %}
+<h1>My favourites</h1>
+
+<div>
+
+    <ul class="list-articles">
+        {% for p in object_list %}
+        <li>
+            <h2><a href="{% url 'articles_detail' p.article.id %}">{{ p.article.title }}</a></h2>
+            <div class="clear"></div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
